@@ -72,12 +72,12 @@ const App = () => {
           <section className="all-movies">
             <h2 className="mt-[40px]">All Movies</h2>
 
-            {/* <p className="text-red-500">{errorMessage}</p> */}
             {isLoading ? (
-              // <p className="text-white">Loading....</p>
               <Spinner />
             ) : errorMessage ? (
               <p className="text-red-500">{errorMessage}</p>
+            ) : movieList.length === 0 && debouncedSearchTerm ? (
+              <p className="text-white">No search results found</p>
             ) : (
               <ul>
                 {movieList.map((movie) => (
